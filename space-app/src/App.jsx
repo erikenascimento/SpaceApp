@@ -7,6 +7,7 @@ import banner from "./components/Wrapper/banner.png";
 import Gallery from "./components/Gallery";
 import photos from "./fotos.json";
 import { useState } from "react";
+import ZoomDialog from "./components/ZoomDialog";
 
 const GradientBackground = styled.div`
 	background: linear-gradient(
@@ -54,6 +55,7 @@ const App = () => {
 					</GalleryContent>
 				</MainContainer>
 			</ContainerApp>
+			<ZoomDialog />
 		</GradientBackground>
 	);
 };
