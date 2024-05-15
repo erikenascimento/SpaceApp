@@ -6,6 +6,7 @@ import Image from "./Image";
 
 const GalleryContainer = styled.div`
 	display: flex;
+	gap: 24px;
 `;
 
 const FluidSection = styled.section`
@@ -14,7 +15,9 @@ const FluidSection = styled.section`
 
 const ImagesContainer = styled.div`
 	display: flex;
+	justify-content: space-between;
 	flex-wrap: wrap;
+	gap: 24px;
 `;
 
 const Gallery = ({ photos = [], onPhotoSelected }) => {

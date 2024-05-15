@@ -59,7 +59,10 @@ const App = () => {
 					</GalleryContent>
 				</MainContainer>
 			</ContainerApp>
-			<ZoomDialog photo={selectedPhoto} />
+			<ZoomDialog
+				photo={selectedPhoto}
+				onClose={() => setSelectedPhoto(null)}
+			/>
 		</GradientBackground>
 	);
 };
