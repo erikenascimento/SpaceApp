@@ -11,13 +11,14 @@ const FluidSection = styled.section`
 	flex-grow: 1;
 `;
 
-const Gallery = () => {
+const Gallery = ({ photos = [] }) => {
 	return (
 		<>
 			<Tags></Tags>
 			<GalleryContainer>
 				<FluidSection>
 					<Title>Navegue pela galeria</Title>
+					{photos.map(photo => photo.titulo)}
 				</FluidSection>
 				<Populars />
 			</GalleryContainer>
