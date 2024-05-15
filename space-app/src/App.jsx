@@ -39,6 +39,7 @@ const GalleryContent = styled.section`
 
 const App = () => {
 	const [galleryPhotos, setGalleryPhotos] = useState(photos);
+	const [selectedPhoto, setSelectedPhoto] = useState(null);
 	return (
 		<GradientBackground>
 			<GlobalStyles />
@@ -51,11 +52,14 @@ const App = () => {
 							text="A galeria mais completa de fotos do espaço!"
 							backgroundImage={banner}
 						/>
-						<Gallery photos={galleryPhotos} />
+						<Gallery
+							onPhotoSelected={photo => setSelectedPhoto(photo)}
+							photos={galleryPhotos}
+						/>
 					</GalleryContent>
 				</MainContainer>
 			</ContainerApp>
-			<ZoomDialog />
+			<ZoomDialog photo={selectedPhoto} />
 		</GradientBackground>
 	);
 };

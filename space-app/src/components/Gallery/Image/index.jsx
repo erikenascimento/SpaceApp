@@ -1,6 +1,7 @@
 import styled from "styled-components";
+import IconButton from "../../IconButton";
 
-const Figure = styled.figure`
+const StyledFigure = styled.figure`
 	width: ${props => (props.$expanded ? "90%" : "460px")};
 	max-width: 100%;
 	margin: 0;
@@ -30,19 +31,31 @@ const Figure = styled.figure`
 	}
 `;
 
-const Image = ({ key, photo = [] }) => {
+const StyledFooter = styled.footer`
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+`;
+
+const Image = ({ photo, expanded = false, onZoomRequired }) => {
 	return (
-		<Figure>
+		<StyledFigure $expanded={expanded} id={`photo-${photo.id}`}>
 			<img src={photo.path} alt={photo.alt} />
 			<figcaption>
 				<h3>{photo.titulo}</h3>
-				<footer>
-					<p>{photo.fonte}</p>
-					<button>Favorito</button>
-					<button>Expandir</button>
-				</footer>
+				<StyledFooter>
+					<h4>{photo.fonte}</h4>
+					<IconButton>
+						<img src="/icons/favorito.png" alt="Icone de favorito" />
+					</IconButton>
+					{!expanded && (
+						<IconButton aria-hidden={expanded} onClick={onZoomRequired}>
+							<img src="/icons/expandir.png" alt="Icone de expandir" />
+						</IconButton>
+					)}
+				</StyledFooter>
 			</figcaption>
-		</Figure>
+		</StyledFigure>
 	);
 };
 

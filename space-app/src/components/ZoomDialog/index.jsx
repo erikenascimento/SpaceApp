@@ -1,7 +1,7 @@
-const ZoomDialog = () => {
+const ZoomDialog = ({ photo }) => {
 	return (
 		<>
-			<dialog open>
+			<dialog open={!!photo}>
 				<p>Greeting</p>
 				<form method="dialog">
 					<button>Ok</button>

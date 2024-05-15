@@ -17,7 +17,7 @@ const ImagesContainer = styled.div`
 	flex-wrap: wrap;
 `;
 
-const Gallery = ({ photos = [] }) => {
+const Gallery = ({ photos = [], onPhotoSelected }) => {
 	return (
 		<>
 			<Tags />
@@ -26,7 +26,11 @@ const Gallery = ({ photos = [] }) => {
 					<Title>Navegue pela galeria</Title>
 					<ImagesContainer>
 						{photos.map(photo => (
-							<Image key={photo.id} photo={photo} />
+							<Image
+								onZoomRequired={onPhotoSelected}
+								key={photo.id}
+								photo={photo}
+							/>
 						))}
 					</ImagesContainer>
 				</FluidSection>
