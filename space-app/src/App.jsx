@@ -42,6 +42,12 @@ const App = () => {
 	const [selectedPhoto, setSelectedPhoto] = useState(null);
 
 	const onFavoriteToggle = photo => {
+		if (photo.id === selectedPhoto?.id) {
+			setSelectedPhoto({
+				...selectedPhoto,
+				favorita: !selectedPhoto.favorita,
+			});
+		}
 		setGalleryPhotos(
 			galleryPhotos.map(galleryPhotos => {
 				return {
@@ -78,6 +84,7 @@ const App = () => {
 			<ZoomDialog
 				photo={selectedPhoto}
 				onClose={() => setSelectedPhoto(null)}
+				onFavoriteToggle={onFavoriteToggle}
 			/>
 		</GradientBackground>
 	);

@@ -29,14 +29,18 @@ const StyledDialog = styled.dialog`
 	}
 `;
 
-const ZoomDialog = ({ photo, onClose }) => {
+const ZoomDialog = ({ photo, onClose, onFavoriteToggle }) => {
 	return (
 		<>
 			{photo && (
 				<>
 					<Overlay />
 					<StyledDialog open={!!photo} onClose={onClose}>
-						<Image photo={photo} expanded={true} />
+						<Image
+							photo={photo}
+							expanded={true}
+							onFavoriteToggle={onFavoriteToggle}
+						/>
 						<form method="dialog">
 							<IconButton formMethod="dialog">
 								<img src="/icons/fechar.png" alt="Icone ded fechar" />
