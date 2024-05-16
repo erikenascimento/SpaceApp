@@ -20,7 +20,7 @@ const ImagesContainer = styled.div`
 	gap: 24px;
 `;
 
-const Gallery = ({ photos = [], onPhotoSelected }) => {
+const Gallery = ({ photos = [], onPhotoSelected, onFavoriteToggle }) => {
 	return (
 		<>
 			<Tags />
@@ -31,6 +31,7 @@ const Gallery = ({ photos = [], onPhotoSelected }) => {
 						{photos.map(photo => (
 							<Image
 								onZoomRequired={onPhotoSelected}
+								onFavoriteToggle={onFavoriteToggle}
 								key={photo.id}
 								photo={photo}
 							/>
