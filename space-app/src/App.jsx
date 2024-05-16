@@ -42,7 +42,17 @@ const App = () => {
 	const [selectedPhoto, setSelectedPhoto] = useState(null);
 
 	const onFavoriteToggle = photo => {
-		console.log(photo);
+		setGalleryPhotos(
+			galleryPhotos.map(galleryPhotos => {
+				return {
+					...galleryPhotos,
+					favorita:
+						galleryPhotos.id == photo.id
+							? !photo.favorita
+							: galleryPhotos.favorita,
+				};
+			})
+		);
 	};
 
 	return (

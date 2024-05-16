@@ -43,6 +43,9 @@ const Image = ({
 	onZoomRequired,
 	onFavoriteToggle,
 }) => {
+	const favoriteIcon = photo.favorita
+		? "/icons/favorito-ativo.png"
+		: "/icons/favorito.png";
 	return (
 		<StyledFigure $expanded={expanded} id={`photo-${photo.id}`}>
 			<img src={photo.path} alt={photo.alt} />
@@ -51,7 +54,7 @@ const Image = ({
 				<StyledFooter>
 					<h4>{photo.fonte}</h4>
 					<IconButton onClick={() => onFavoriteToggle(photo)}>
-						<img src="/icons/favorito.png" alt="Icone de favorito" />
+						<img src={favoriteIcon} alt="Icone de favorito" />
 					</IconButton>
 					{!expanded && (
 						<IconButton
